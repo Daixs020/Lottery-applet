@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container" style="padding: 50rpx 0;">
+
+  <image  src="/bg.jpg"></image>
+  <view style="background-color:whitesmoke;height:5rem;"/>
+  
+  <view class="centerbox" style="height:270px;text-align:center;border-radius: 18px; box-shadow: 0 0px 40px rgb(104,19,12);width: 100%;">
+    <van-notice-bar
+  color="white"
+  background="rgb(104,19,12)"
+  text="谁是幸运儿~ଘ(੭ˊᵕˋ)੭"
+/>
+
+<!-- 抽奖小程序 -->
+<view class="lottery">
+  <view  style="background-color:white;height:1rem;"/>
+
+  <van-button class="{{mor}}" custom-style="border-radius: 10px;height:7rem;font-size:20px;" 
+    color="rgb(104,19,12)">等待开奖</van-button>
+
+    <van-button custom-style="border-radius: 10px;height:7rem;font-size:20px;" 
+    class="{{lkl}}"
+    color="linear-gradient(to right, #4bb0ff, #6149f6)">{{items[current]}}</van-button>
+
+  <van-dialog id="van-dialog" />
+</view>
+
+  </view>
+  <view style="display: inline;margin-top: -5rem;">
+    <van-button color="rgb(246,187,139)" bindtap="start" custom-style="border-radius: 10px;">
+    开始抽奖
+    </van-button>
+
+    <text>\t </text>
+  <van-button color="rgb(246,187,139)" bindtap="stops" custom-style="border-radius: 10px;margin-left:10rem;">停止</van-button>
+  </view>
+</view>
