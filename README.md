@@ -18,8 +18,13 @@ sql文件在项目根目录 导入即可
         return json($last_names);
         }
         
-        public function iosoks(){
-        $userok = db('okuser')->where('username',input('username'))->update(['isok'=>1]);
+        public function iosoksr(){
+            
+            $count = db('okuser')->where('isok',0)->orderRaw('rand()')->find();
+            
+            $isok = db('okuser')->where('id',$count['id'])->update(['isok'=>1]);
+            if($isok)return json($count['username']);
+            
         }
 ```
 长这样！
