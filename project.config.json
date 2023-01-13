@@ -48,9 +48,9 @@
     "disableUseStrict": false,
     "useCompilerPlugins": false
   },
-  "compileType": "game",
+  "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "你的appid",
+  "appid": "wx57fe4d24d943bae3",
   "projectname": "miniprogram-92",
   "condition": {},
   "editorSetting": {

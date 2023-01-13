@@ -23,49 +23,43 @@ Page({
       url: 'xxx/index/Customer/getokuser', //请求接口的url
       method: 'get', //请求方式
       success: res => {
-
             // 启动定时器，每隔一段时间随机切换一次文字
     this.interval = setInterval(() => {
       this.setData({
         current: Math.floor(Math.random() * res.data.length)
       });
     }, 100);
-
             this.setData({
               items: res.data,
               mor:"stop",
               lkl: "start",
               lpl:"stop"
             })
-
-  
           // }
         }
     });
-
 
   },
   stops() {
     // 停止定时器
     clearInterval(this.interval);
 
-    Dialog.alert({
-      title: this.data.items[this.data.current],
-      message: "恭喜你！中奖啦！",
-    }).then(() => {
-      // on close
-    });
-
     wx.request({
       //获取地址
-      url: 'xxx/index/Customer/iosoks', //请求接口的url
+      url: 'xxx/index/Customer/iosoksr', //请求接口的url
       method: 'get', //请求方式
-      data:{
-        'username':this.data.items[this.data.current]
-      },
+      // data:{
+      //   'username':this.data.items[this.data.current]
+      // },
       success: res => {
+        Dialog.alert({
+          title: res.data,
+          message: "恭喜你！中奖啦！",
+        }).then(() => {
+          // on close
+        });
             this.setData({
-              items: res.data,
+              // items: res.data,
               lkl: "stop",
               mor:"start"
             })
@@ -75,8 +69,6 @@ Page({
   },
 
   onLoad() {
-
-
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
